@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  section.home-card
+    h2 Good Morning, #{name}
+    p Welcome to your study planner.
+
+    h3 Module Overview
+    ul
+      li CMP5012B - Software Engineering
+      li CMP5013A - Architectures and Operating Systems
+      li CMP5036A - Information Retrieval
+
+    a.button(href="/dashboard") Go to Study Dashboard

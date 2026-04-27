@@ -1,0 +1,110 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f6fa;
+  margin: 0;
+  color: #222;
+}
+
+.site-header {
+  background: #222;
+  color: white;
+  padding: 18px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-header h1 {
+  margin: 0;
+}
+
+.site-header a {
+  color: white;
+  text-decoration: none;
+  margin-left: 18px;
+}
+
+.page-content {
+  padding: 30px;
+}
+
+.home-card {
+  background: white;
+  padding: 25px;
+  border: 2px solid #222;
+  max-width: 700px;
+}
+
+.button,
+.add-button {
+  display: inline-block;
+  background: #222;
+  color: white;
+  padding: 12px 18px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.dashboard {
+  background: white;
+  border: 3px solid #111;
+  padding: 25px;
+}
+
+.dashboard-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-top h2 {
+  font-size: 36px;
+  letter-spacing: 4px;
+}
+
+.add-button {
+  font-size: 28px;
+  width: 50px;
+  height: 50px;
+}
+
+.columns {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.column {
+  flex: 1;
+}
+
+.column h3 {
+  font-size: 28px;
+  text-decoration: underline;
+}
+
+.task-card {
+  border: 2px solid #111;
+  padding: 15px;
+  margin-bottom: 20px;
+  background: #fff;
+}
+
+.task-card h4 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.progress-bar {
+  background: #ddd;
+  height: 8px;
+  width: 100%;
+  margin: 8px 0;
+}
+
+.progress-fill {
+  background: #7fc8bd;
+  height: 8px;
+}

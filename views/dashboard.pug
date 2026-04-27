@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  section.dashboard
+    .dashboard-top
+      h2 STUDY DASHBOARD
+      p.date 22/02/2026
+      button.add-button +
+
+    .columns
+      .column
+        h3 Completed
+        .task-card
+          h4 Task 1
+          p Module 1
+          p Progress: 100%
+          .progress-bar
+            .progress-fill(style="width: 100%")
+          p Due Date: xx/xx/xx
+
+      .column
+        h3 Upcoming
+        .task-card
+          h4 Task 1
+          p Module 3
+          p Progress: 62%
+          .progress-bar
+            .progress-fill(style="width: 62%")
+          p Due Date: xx/xx/xx
+
+        .task-card
+          h4 Task 2
+          p Module 2
+          p Progress: 42%
+          .progress-bar
+            .progress-fill(style="width: 42%")
+          p Due Date: xx/xx/xx
+
+      .column
+        h3 Passed
+        .task-card
+          h4 Task 1
+          p Module 3
+          p Progress: 70%
+          .progress-bar
+            .progress-fill(style="width: 70%")
+          p Due Date: xx/xx/xx
