@@ -1,0 +1,91 @@
+{
+  "currentUser": {
+    "name": "ORGANISER NAME",
+    "id": "STF-ID",
+    "role": "Module Organiser",
+    "primaryModule": "CMP-5012B"
+  },
+  "assignments": [
+    {
+      "id": 1,
+      "name": "Requirements & Design Report",
+      "module": "CMP-5012B Software Engineering",
+      "dateSet": "2026-01-26",
+      "dueDate": "2026-03-02",
+      "createdBy": {
+        "name": "TEMP NAME",
+        "id": "STF-ID"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Team Demo & Source Code",
+      "module": "CMP-5012B Software Engineering",
+      "dateSet": "2026-02-09",
+      "dueDate": "2026-04-27",
+      "createdBy": {
+        "name": "TEMP NAME",
+        "id": "STF-ID"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Database Coursework 1",
+      "module": "CMP-5014A Database Systems",
+      "dateSet": "2026-02-02",
+      "dueDate": "2026-03-16",
+      "createdBy": {
+        "name": "TEMP NAME",
+        "id": "STF-ID"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Algorithms Problem Set",
+      "module": "CMP-5020A Algorithms",
+      "dateSet": "2026-02-15",
+      "dueDate": "2026-03-09",
+      "createdBy": {
+        "name": "TEMP NAME",
+        "id": "STF-ID"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Reflective Report",
+      "module": "CMP-5012B Software Engineering",
+      "dateSet": "2026-03-02",
+      "dueDate": "2026-05-04",
+      "createdBy": {
+        "name": "TEMP NAME",
+        "id": "STF-ID"
+      }
+    }
+  ],
+  "announcements": [
+    {
+      "id": 1,
+      "author": "TEMP NAME",
+      "module": "CMP-5012B",
+      "title": "Sprint 2 demo rooms updated",
+      "body": "Demo slots for Week 12 have been moved to LT2. Please check your team's confirmed slot in Blackboard.",
+      "timestamp": "2026-04-28T09:14:00"
+    },
+    {
+      "id": 2,
+      "author": "TEMP NAME",
+      "module": "CMP-5012B",
+      "title": "Reminder - Reflective Report due 04/05",
+      "body": "Individual reflective reports are due Monday 4 May at 16:00. Submit via the e-submission portal.",
+      "timestamp": "2026-04-25T15:02:00"
+    },
+    {
+      "id": 3,
+      "author": "TEMP NAME",
+      "module": "CMP-5012B",
+      "title": "Office hours moved this week",
+      "body": "Tuesday office hours are moved to Thursday 14:00-16:00 due to staff training.",
+      "timestamp": "2026-04-21T11:30:00"
+    }
+  ]
+}

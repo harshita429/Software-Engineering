@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module Organiser</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Loading screen, shown until data.json is loaded -->
+  <div id="loadingScreen" class="container">
+    <div class="loading-box">
+      <div class="spinner"></div>
+      <p>Loading...</p>
+    </div>
+  </div>
+
+  <!-- Error screen, shown if data.json fails to load -->
+  <div id="errorScreen" class="container hidden">
+    <div class="error-box">
+      <h2>Couldn't load data</h2>
+      <p id="errorMessage">
+        Could not load data.json.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main app, hidden until data is loaded -->
+  <div id="appScreen" class="container hidden">
+
+    <!-- Top header with greeting and date -->
+    <header class="header">
+      <div>
+        <h1 id="greeting">Good Morning.</h1>
+        <p class="user-info">
+          <span id="userName">User</span>
+          <span id="userRole" class="role-tag">Module Organiser</span>
+        </p>
+      </div>
+      <div class="date-box">
+        <p id="dateMain" class="date-main">--/--/----</p>
+        <p id="dateSub" class="date-sub">Day</p>
+      </div>
+    </header>
+
+    <div class="main-grid">
+
+      <!-- Assignments section -->
+      <section class="card">
+        <div class="section-head">
+          <div>
+            <h2>Assignments</h2>
+            <p id="assignmentCount" class="section-sub">0 assignments</p>
+          </div>
+          <button id="addAssignmentBtn" class="btn-add" title="Add assignment">+</button>
+        </div>
+
+        <!-- Search and filter -->
+        <div class="filters">
+          <input type="text" id="searchInput" class="input" placeholder="Search by name or staff ID...">
+          <select id="moduleFilter" class="select"></select>
+        </div>
+
+        <!-- Table of assignments -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Module</th>
+                <th>Created By</th>
+                <th>Date Set</th>
+                <th>Due Date</th>
+                <th>Edit</th>
+              </tr>
+            </thead>
+            <tbody id="assignmentsBody"></tbody>
+          </table>
+        </div>
+
+        <!-- Legend explaining the pill colours -->
+        <div class="legend">
+          <span><span class="pill pill-overdue">overdue</span> past due date</span>
+          <span><span class="pill pill-soon">soon</span> due within a week</span>
+          <span><span class="pill pill-ok">ok</span> on track</span>
+        </div>
+      </section>
+
+      <!-- Announcements section -->
+      <section class="card announcements-card">
+        <div class="section-head">
+          <h2>Announcements</h2>
+        </div>
+
+        <!-- Form to post a new announcement -->
+        <div class="composer">
+          <label class="label" for="annTitle">New announcement</label>
+          <input type="text" id="annTitle" class="input" placeholder="Title">
+          <textarea id="annBody" class="textarea" placeholder="Write a message..." rows="3"></textarea>
+          <div class="composer-foot">
+            <span class="small-text">Posting as <strong id="composerAuthor">User</strong></span>
+            <button id="postAnnBtn" class="btn btn-primary" disabled>Post</button>
+          </div>
+        </div>
+
+        <!-- List of past announcements -->
+        <p class="feed-label">Recent (<span id="annCount">0</span>)</p>
+        <div id="feed" class="feed"></div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Modal popups (edit, delete) get added here by JavaScript -->
+  <div id="modalRoot"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

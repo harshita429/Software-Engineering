@@ -1,0 +1,589 @@
+:root {
+  --white: #ffffff;
+  --light-grey: #f5f5f5;
+  --medium-grey: #ebebeb;
+  --border: #e0e0e0;
+  --text: #1a1a1a;
+  --text-muted: #6b6b6b;
+  --text-faint: #9a9a9a;
+  --orange: #ff6a00;
+  --orange-hover: #e85d00;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--light-grey);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* Hides any element with the .hidden class */
+.hidden {
+  display: none;
+}
+
+/* ============= PAGE LAYOUT ============= */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px 25px;
+}
+
+/* Two-column grid: assignments on the left, announcements on the right */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+}
+
+/* On smaller screens, stack them on top of each other instead */
+@media (max-width: 1024px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============= LOADING AND ERROR SCREENS ============= */
+.loading-box {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-muted);
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--medium-grey);
+  border-top-color: var(--orange);
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-box {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 25px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--orange);
+  border-radius: 8px;
+}
+
+.error-box h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.error-box p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.error-box code {
+  background: var(--light-grey);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 12px;
+  color: var(--text);
+  display: inline-block;
+  margin: 4px 0;
+}
+
+/* ============= TOP HEADER ============= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.header h1 {
+  font-size: 42px;
+  letter-spacing: -1px;
+}
+
+.user-info {
+  margin-top: 8px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-info strong, #userName {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.role-tag {
+  background: var(--text);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.date-box {
+  text-align: right;
+}
+
+.date-main {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.date-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* ============= CARDS (white boxes that hold each section) ============= */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.section-head h2 {
+  font-size: 18px;
+}
+
+.section-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ============= BUTTONS ============= */
+.btn {
+  display: inline-block;
+  padding: 9px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--orange-hover);
+}
+
+.btn-primary:disabled {
+  background: var(--medium-grey);
+  color: var(--text-faint);
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: var(--white);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: var(--light-grey);
+}
+
+.btn-danger {
+  background: var(--text);
+  color: var(--white);
+}
+
+.btn-danger:hover {
+  background: #000;
+}
+
+/* The big orange + button next to "Assignments" */
+.btn-add {
+  width: 36px;
+  height: 36px;
+  background: var(--orange);
+  color: var(--white);
+  font-size: 22px;
+  font-weight: 700;
+  border-radius: 6px;
+  line-height: 1;
+}
+
+.btn-add:hover {
+  background: var(--orange-hover);
+}
+
+/* Small edit/delete buttons in the table */
+.btn-icon {
+  padding: 5px 10px;
+  background: var(--light-grey);
+  color: var(--text-muted);
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.btn-icon:hover {
+  background: var(--text);
+  color: var(--white);
+}
+
+.btn-icon.danger:hover {
+  background: var(--orange);
+  color: var(--white);
+}
+
+/* ============= INPUTS, SELECTS, TEXTAREAS ============= */
+.input, .select, .textarea {
+  width: 100%;
+  padding: 9px 12px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+}
+
+.input:focus, .select:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 70px;
+  font-family: inherit;
+}
+
+.label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.filters .input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.filters .select {
+  min-width: 180px;
+}
+
+/* ============= ASSIGNMENTS TABLE ============= */
+.table-wrap {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: var(--light-grey);
+}
+
+thead th {
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+tbody td {
+  padding: 13px 14px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+}
+
+tbody tr:hover {
+  background: var(--light-grey);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.cell-name {
+  font-weight: 600;
+}
+
+.cell-muted {
+  color: var(--text-muted);
+}
+
+.cell-id {
+  font-size: 11px;
+  color: var(--text-faint);
+  font-family: monospace;
+  margin-top: 2px;
+}
+
+.cell-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* The little coloured pills showing status */
+.pill {
+  display: inline-block;
+  padding: 2px 7px;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 3px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.pill-ok {
+  background: var(--light-grey);
+  color: var(--text-muted);
+}
+
+.pill-soon {
+  background: var(--orange);
+  color: var(--white);
+}
+
+.pill-overdue {
+  background: var(--text);
+  color: var(--white);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.legend > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.empty-row {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+
+/* ============= ANNOUNCEMENTS ============= */
+.announcements-card {
+  display: flex;
+  flex-direction: column;
+  max-height: 760px;
+}
+
+.composer {
+  background: var(--light-grey);
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+
+.composer .input,
+.composer .textarea {
+  background: var(--white);
+  margin-bottom: 8px;
+}
+
+.composer-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.small-text {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.feed-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.feed {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.announcement {
+  border-left: 3px solid var(--orange);
+  padding-left: 12px;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.announcement:last-child {
+  border-bottom: none;
+}
+
+.ann-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.ann-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ann-time {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.ann-meta {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.ann-body {
+  font-size: 13px;
+  color: var(--text);
+}
+
+/* ============= MODAL POPUPS ============= */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.modal {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 25px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.modal-small {
+  max-width: 400px;
+}
+
+.modal h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.form-row {
+  margin-bottom: 14px;
+}
+
+.form-row-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.error-msg {
+  background: var(--text);
+  color: var(--white);
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.modal-foot {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+/* ============= SCROLLBARS ============= */
+.table-wrap::-webkit-scrollbar,
+.feed::-webkit-scrollbar {
+  width: 8px;
+}
+
+.table-wrap::-webkit-scrollbar-thumb,
+.feed::-webkit-scrollbar-thumb {
+  background: var(--medium-grey);
+  border-radius: 4px;
+}
