@@ -1,47 +1,78 @@
 extends layout
 
 block content
-  section.dashboard
-    .dashboard-top
-      h2 STUDY DASHBOARD
+  section.dashboard-page
+    .dashboard-header
+      h1 STUDY DASHBOARD
       p.date 22/02/2026
-      button.add-button +
+      button#addTaskButton.add-task-button(type="button") +
 
-    .columns
-      .column
-        h3 Completed
-        .task-card
-          h4 Task 1
-          p Module 1
-          p Progress: 100%
-          .progress-bar
-            .progress-fill(style="width: 100%")
-          p Due Date: xx/xx/xx
+    .dashboard-columns
+      .dashboard-column
+        h2 Completed
+        #completedTasks
 
-      .column
-        h3 Upcoming
-        .task-card
-          h4 Task 1
-          p Module 3
-          p Progress: 62%
-          .progress-bar
-            .progress-fill(style="width: 62%")
-          p Due Date: xx/xx/xx
+      .dashboard-column
+        h2 Upcoming
+        #upcomingTasks
 
-        .task-card
-          h4 Task 2
-          p Module 2
-          p Progress: 42%
-          .progress-bar
-            .progress-fill(style="width: 42%")
-          p Due Date: xx/xx/xx
+      .dashboard-column
+        h2 Passed
+        #passedTasks
 
-      .column
-        h3 Passed
-        .task-card
-          h4 Task 1
-          p Module 3
-          p Progress: 70%
-          .progress-bar
-            .progress-fill(style="width: 70%")
-          p Due Date: xx/xx/xx
+  #taskPopup.popup.hidden
+    .popup-box
+      button#closePopupButton.close-button(type="button") X
+
+      h2 Edit Task Details
+
+      label(for="taskTitleInput") Task name
+      input#taskTitleInput(type="text")
+
+      label(for="moduleNameInput") Module name
+      input#moduleNameInput(type="text")
+
+      label(for="taskDueDate") Task due date
+      input#taskDueDate(type="date")
+      
+      button#deleteTaskButton(type="button") Delete Task
+
+      h3 Gantt Chart
+
+      .gantt-table
+        .gantt-header
+          span Milestone
+          span Week 1
+          span Week 2
+          span Week 3
+          span Week 4
+          span Week 5
+          span Done
+
+        #ganttRows
+
+      h3 Add Milestone
+
+      form#milestoneForm
+        label(for="milestoneName") Milestone name
+        input#milestoneName(type="text", placeholder="e.g. Finish prototype")
+
+        label(for="startWeek") Start week
+        select#startWeek
+          option(value="1") Week 1
+          option(value="2") Week 2
+          option(value="3") Week 3
+          option(value="4") Week 4
+          option(value="5") Week 5
+
+        label(for="endWeek") End week
+        select#endWeek
+          option(value="1") Week 1
+          option(value="2") Week 2
+          option(value="3") Week 3
+          option(value="4") Week 4
+          option(value="5") Week 5
+
+        button(type="submit") Add Milestone
+block scripts
+  script(src="/javascripts/dashboard.js")
