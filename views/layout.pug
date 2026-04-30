@@ -4,6 +4,14 @@ html
     title= title
     link(rel="stylesheet", href="/stylesheets/main.css")
   body
+    header.site-header
+      h1 Study Planner
+      nav
+        a(href="/") Home
+        a(href="/dashboard") Dashboard
+        a(href="/planner") Planner
+        a(href="/module") Module
+
     main.page-content
       block content
 
